@@ -65,5 +65,8 @@ export SHELL=bash
 stty rows 51 columns 189
 ```
 
-
+### 9) Reiniciar nuevamente la configuración actual de la terminal.
+```bash
+reset xterm
+```
 
