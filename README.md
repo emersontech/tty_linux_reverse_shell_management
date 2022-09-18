@@ -1,8 +1,7 @@
 # Tratamiento de la TTY
 
 # Contexto
-Al ganar una reverse shell de linux debemos ajustar con ciertos comandos nuestra shell para operar mejor la fase de escalada de privilegios. Es por eso
-que esta secuencia de comantos te ayudarán a mejorar el seteo de la TTY.
+Durante una fase de ataque, al lograr conseguir una reverse shell dado una IP víctima durante un pentesting, llega un momento en donde tenemos que conectarnos hacia la máquina víctima para poder hurgar en los archivos internos o incluso lograr escalar sus privilegios. Es en ese momento cuando tenemos que hacer un tratamiento a la tty.
 
 # Instrucciones
 Solo sigue los pasos como se encuentran detallados y estará todo listo.
