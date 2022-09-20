@@ -11,7 +11,7 @@ Recordemos que esto se ejecuta mediante una BASH (bourn again shell).
 
 ## ¿Por qué es Necesario Hacer un Tratamiento a la TTY?
 Al momento de conectarnos hacia una máquina victima (de forma remota) existen ciertas complicaciones y restriciones a la hora de operar comandos de una bash.
-Por ejemplo, si precionamos un [CTRL + C], esto le diche a la bash que corte toda la comunicación ya establecída, lo cual nos hace perder todo el trabajo que llevamos.
+Por ejemplo, si precionamos un [CTRL + C], esto le dice a la bash que corte toda la comunicación ya establecída, lo cual nos hace perder todo el trabajo que llevamos.
 Entonces, hacer un tratamiento a la TTY nos ayudrará a evitar esos problemas y por ende, mejorar el rendimiento de nuestra bash.
 
 ## ¿Como se Logra?
