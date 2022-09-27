@@ -1,71 +1,71 @@
-# Comandos necesarios para el tratamiento de la TTY
+# Commands for manage TTY
 
-## Contexto
-Durante una fase de ataque, al lograr conseguir una reverse shell dado una IP víctima durante un pentesting, llega un momento en donde tenemos que conectarnos
-hacia la máquina víctima para poder hurgar en los archivos internos o incluso lograr escalar sus privilegios. Es en ese momento cuando tenemos que hacer un
-tratamiento a la tty
+## Resume
+During an attack phase, when obtaining a reverse shell given a victim IP during a pentesting, there comes a time when we have to connect
+to the victim machine in order to rummage through internal files or even escalate their privileges. It is at that moment when we have to make a
+tty treatment
 
-## ¿Que es un TTY?
-tty es un comando de Unix (también en similares como GNU/Linux) que muestra (escribe a la salida estándar) el nombre de fichero de la terminal de la entrada estándar.
-Recordemos que esto se ejecuta mediante una BASH (bourn again shell).
+## ¿What is the TTY?
+tty is a Unix (also similar to GNU/Linux) command that prints (writes to standard output) the terminal's filename from standard input.
+Remember that this is executed through a BASH (bourn again shell).
 
-## ¿Por qué es Necesario Hacer un Tratamiento a la TTY?
-Al momento de conectarnos hacia una máquina victima (de forma remota) existen ciertas complicaciones y restriciones a la hora de operar comandos de una bash.
-Por ejemplo, si precionamos un [CTRL + C], esto le dice a la bash que corte toda la comunicación ya establecída, lo cual nos hace perder todo el trabajo que llevamos.
-Entonces, hacer un tratamiento a la TTY nos ayudrará a evitar esos problemas y por ende, mejorar el rendimiento de nuestra bash.
+## ¿Why is it necesary?
+When connecting to a victim machine (remotely) there are certain complications and restrictions when operating bash commands.
+For example, if we press [CTRL + C], this tells bash to cut off all communication already established, which causes us to lose all the work we have done.
+So, treating the TTY will help us avoid these problems and therefore improve the performance of our bash.
 
-## ¿Como se Logra?
-Para hacer un correcto tratamiento de una TTY primero es necesarios ya estar conectados (ya haber logrado una reverse shell). Generalmente este paso se logra mediante
-un lanzamiento de un servidor *netcat* especificando un puerto de escucha en nuestra bash.
+## ¿How do we make it?
+To make a correct treatment of a TTY, it is first necessary to be connected (and to have achieved a reverse shell). Usually this step is accomplished by
+a launch of a *netcat* server specifying a listening port in our bash.
 
-El paso siguiente es seguir estas lineas de comandos y estaría listo.
+The next step is to follow these command lines and you should be good to go.
 
-### 1) Comprobar que tenemos la conexion establecida. Al lanzar el comando *whoami* debería devolvernos el nombre de la máquina.
+### 1) Check that we have the connection established. Running the *whoami* command should return the hostname.
 ```bash
 whoami
 ```
-### 2) Lanzar una bash interactíva (una pseudo consola)
+### 2) Launch an interactive bash (a pseudo console).
 
 ```bash
 script /dev/null -c bash
 ```
 
-### 3) Enviar el proceso que se está ejecutando a segundo plano
+### 3) Send the process that is running to the background.
 
 ```bash
 [CTRL + Z]
 ```
 
-### 4) Retomar el proceso anteriormente dejado en segundo plano (3)
+### 4) Resume the process previously left in the background (3)
 
 ```bash
 stty raw -echo; fg
 ```
 
-### 5) Reiniciar la configuración actual de la terminal (luego de este paso ya deberíamos poder operar la terminal externa de forma más cómoda.)
+### 5) Restart the current configuration of the terminal (after this step we should be able to operate the external terminal more comfortably).
 
 ```bash
 reset xterm
 ```
 
-### 6) Exportamos una terminal Xterm
+### 6) We export an Xterm terminal
 
 ```bash
 export TERM=xterm
 ```
 
-### 7) Exportamos una bash
+### 7) We export a bash
 
 ```bash
 export SHELL=bash
 ```
 
-### 8) Cambiar la resolución de nuestra bash interactiva. Nota: Para revisar el numero de rows y columns actuales ejecutar -> stty size.
+### 8) Change the resolution of our interactive bash. Note: To check the number of current rows and columns run -> stty size.
 ```bash
 stty rows 51 columns 189
 ```
 
-### 9) Reiniciar nuevamente la configuración actual de la terminal.
+### 9) Restart the current terminal configuration again.
 ```bash
 reset xterm
 ```
