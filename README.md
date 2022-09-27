@@ -1,7 +1,7 @@
-# Tratamiento de la TTY
+# How to manage the TTY
 
-# Contexto
-Durante una fase de ataque, al lograr conseguir una reverse shell dado una IP víctima durante un pentesting, llega un momento en donde tenemos que conectarnos hacia la máquina víctima para poder hurgar en los archivos internos o incluso lograr escalar sus privilegios. Es en ese momento cuando tenemos que hacer un tratamiento a la tty.
+# Resume
+During an attack phase, when we manage to get a reverse shell given a victim IP during a pentesting, there comes a time when we have to connect to the victim machine to be able to rummage through the internal files or even manage to escalate its privileges. It is at that moment when we have to do a treatment to the tty.
 
-# Instrucciones
-Solo sigue los pasos como se encuentran detallados y estará todo listo.
+# Instructions
+Just follow the steps as detailed and you're all set.
